@@ -95,3 +95,133 @@
   opacity: 1;
   transform: scale(1.05);
 }
+
+
+
+
+
+
+
+/* testimonial */
+.testimonial-section {
+  padding: 60px 20px;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    rgba(167, 222, 240, 0.18) 100%
+  );
+}
+
+.testimonial-container {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+/* Elegant faded divider */
+.testimonial-divider {
+  width: 90px;
+  height: 2px;
+  margin: 0 auto 20px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #3cbdf8,
+    transparent
+  );
+  opacity: 0.9;
+  filter: blur(0.2px);
+}
+
+/* Quote text */
+.testimonial-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  letter-spacing: 0.3px;   /* FIXED (was wrong %) */
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .testimonial-text {
+    font-size: 1.7rem;
+  }
+}
+
+/* Author */
+.testimonial-author {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+/* fade animation */
+.fade {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Row layout */
+.testimonial-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* 👈 more breathing space */
+}
+
+/* Keep content centered + fixed width */
+.testimonial-content {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 180px; /* 👈 FIXES HEIGHT JUMP */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Arrows */
+.arrow-btn {
+  border: none;
+  background: transparent;
+
+  color: rgba(158, 158, 158, 0.35); /* 👈 soft transparent gray */
+
+  padding: 6px; /* small clickable area */
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make icon slightly bigger */
+.arrow-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Hover effect */
+.arrow-btn:hover {
+  color: rgba(113, 113, 113, 0.855); /* 👈 full visible */
+  transform: scale(1.15); /* subtle premium zoom */
+}

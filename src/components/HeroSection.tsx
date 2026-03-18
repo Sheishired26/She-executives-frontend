@@ -11,7 +11,7 @@ import img4 from "@/assets/hero4.jpg";
 import img5 from "@/assets/hero5.jpg";
 
 import { Link } from "react-router-dom";
-import { Award, TrendingUp, Shield, ArrowRight } from "lucide-react";
+import { Award, TrendingUp, Shield, ArrowRight, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // import your images (VERY IMPORTANT)
@@ -19,6 +19,7 @@ import executivePlacement from "@/assets/executive-placement.jpg";
 import directHire from "@/assets/direct-hire.jpg";
 import hrConsulting from "@/assets/hr-consulting.jpg";
 import MissionSection from "./MissionSection";
+import TestimonialSection from "./Testimonial";
 
 const images = [img1, img2, img3, img4, img5];
 
@@ -29,6 +30,8 @@ const HeroSection = () => {
 
   const currentRef = useRef(null);
   const prevRef = useRef(null);
+
+
 
   useEffect(() => {
   const img = new Image();
@@ -190,7 +193,7 @@ return (
             <div className="text-center mb-16">
               <p className="font-body text-sm tracking-[0.3em] uppercase text-accent mb-4">Our Lines of Business</p>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-                Three Ways We Serve
+                Three Ways Of Excellence
               </h2>
             </div>
           </ScrollReveal>
@@ -251,6 +254,26 @@ return (
           </ScrollReveal>
         </div>
       </section>
+
+      
+      <TestimonialSection/>
+{/* <section className="testimonial-section">
+  <ScrollReveal>
+    <div className="testimonial-container">
+
+      <div className="testimonial-divider"></div>
+
+      <blockquote className="testimonial-text">
+        "SHE Executives transformed our leadership pipeline. Their commitment to diversity isn't just talk—it's measurable impact."
+      </blockquote>
+
+      <p className="testimonial-author">
+        — Fortune 400 HR Director
+      </p>
+
+    </div>
+  </ScrollReveal>
+</section> */}
   </>
 );
 };
