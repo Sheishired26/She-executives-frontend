@@ -8,11 +8,11 @@ import FooterSection from "./FooterSection";
 
 const milestones = [
   { year: "2017", title: "Founded", desc: "SHE Executives launches with a mission to redefine HR consulting for women leaders." },
-  { year: "2019", title: "National Expansion", desc: "Expanded services across all 50 US states, partnering with Fortune 400 firms." },
-  { year: "2021", title: "Canada Launch", desc: "Extended operations into Canada, broadening impact for women executives internationally." },
-  { year: "2023", title: "500+ Placements", desc: "Surpassed 500 executive placements, closing wage gaps and championing DEI." },
-  { year: "2025", title: "SHE Cares", desc: "Launched nonprofit arm for resume support, mental health, and community building." },
-  { year: "2026", title: "She's Hired", desc: "Campaign launch — pledging to hire 100 women in 120 days with top-tier companies." },
+  { year: "2018", title: "Growing Our Reach", desc: "Debuted at the Wonder Women Tech Conference in Long Beach, connecting with diverse women innovators and launching custom eLearning & LMS solutions for corporate clients." },
+  { year: "2019", title: "National Reach", desc: "Expanded to serve all 50 US states, securing major partnerships with a national multi-state retail chain and Fortune 500 companies, including the financial services industry." },
+  { year: "2021", title: "Going Global", desc: "Extended operations into Canada, broadening our talent pool internationally while deepening commitment to workforce development through nonprofit education partnerships." },
+  { year: "2023", title: "Industry Leader", desc: "Established as a go-to HR and DEI consultancy, growing our talent pipeline and expanding lines of business across multiple industries nationwide." },
+  { year: "2026", title: "She’s Hired Campaign", desc: "A career re-entry campaign empowering Black women and women of color to return to the workforce." },
 ];
 
 const About = () => {

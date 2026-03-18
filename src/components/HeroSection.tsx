@@ -104,6 +104,10 @@ return (
           transition={{ duration: 0.9 }}
           className="max-w-3xl"
         >
+          <p className="uppercase tracking-[4px] text-white/80 text-[30px] md:text-xs">
+            Women in Leadership • HR Consulting
+          </p>
+
           <h1 className="font-poppins text-white font-semibold leading-[1.1] text-[48px] md:text-[72px] lg:text-[86px] mb-6">
             Reinventing the Workplace <br />
             for{" "}
@@ -112,7 +116,7 @@ return (
             </span>
           </h1>
 
-          <p className="uppercase tracking-[4px] text-white/60 text-xs md:text-sm">
+          <p className="uppercase tracking-[4px] text-white/80 text-xs md:text-sm">
             HR CONSULTING THAT SUPPORTS AND PARTNERS WITH BUSINESS
           </p>
         </motion.div>
@@ -193,7 +197,7 @@ return (
             <div className="text-center mb-16">
               <p className="font-body text-sm tracking-[0.3em] uppercase text-accent mb-4">Our Lines of Business</p>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-                Three Ways Of Excellence
+                Three Pillars of Success
               </h2>
             </div>
           </ScrollReveal>
