@@ -8,7 +8,7 @@ const FooterSection = () => {
   return (
     <>
       {/* CTA Banner */}
-      <section className="section-padding gradient-hero relative overflow-hidden">
+      {/* <section className="section-padding gradient-hero relative overflow-hidden">
         <motion.div
           className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-5"
           style={{ background: "hsl(var(--primary))" }}
@@ -54,7 +54,7 @@ const FooterSection = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-navy-deep text-baby-blue px-6 py-16">

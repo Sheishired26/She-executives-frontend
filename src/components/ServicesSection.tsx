@@ -1,125 +1,229 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Users, Search, BookOpen, BarChart3, Shield, Sparkles } from "lucide-react";
-import consultingImg from "@/assets/consulting.jpg";
+import {
+  Users,
+  Briefcase,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+  FileText,
+  Scale,
+  TrendingUp,
+  Calculator,
+  HeartHandshake,
+  ShieldCheck,
+} from "lucide-react";
 
-const services = [
-  {
-    icon: Users,
-    title: "Direct-Hire Placements",
-    description: "We don't fill seats — we build legacy teams. Our vetting process assesses culture-add, not just culture-fit, placing diverse talent in roles from operations to the C-suite.",
-    tag: "Most Popular"
-  },
-  {
-    icon: Search,
-    title: "Executive Search",
-    description: "Retained search for VP+ roles with an equity-first lens. We surface hidden talent pools your competitors overlook, delivering 40% more diverse candidate slates.",
-    tag: null
-  },
-  {
-    icon: Shield,
-    title: "HR Consulting & Compliance",
-    description: "From compensation audits and pay equity analysis to OSHA compliance, employee handbooks, and affirmative action plans — we keep you protected and progressive.",
-    tag: null
-  },
-  {
-    icon: BarChart3,
-    title: "Workforce Analytics & Strategy",
-    description: "Data-driven talent strategies: attrition modeling, engagement diagnostics, and succession planning that turns your people data into your competitive advantage.",
-    tag: "New"
-  },
-  {
-    icon: BookOpen,
-    title: "Training & Development",
-    description: "Sexual harassment prevention, inclusive leadership workshops, and unconscious bias training — built for the modern, multi-generational workplace.",
-    tag: null
-  },
-  {
-    icon: Sparkles,
-    title: "DEIB Strategy & Implementation",
-    description: "Beyond the checkbox. We design measurable diversity, equity, inclusion, and belonging programs that move the needle — and make the business case to your board.",
-    tag: "High Impact"
-  },
-];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } }
-};
+import { Button } from "@/components/ui/button";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import servicesPlacement from "@/assets/services-placement.jpg";
+import servicesDirecthire from "@/assets/services-directhire.jpg";
+import servicesConsulting from "@/assets/services-consulting.jpg";
+import FooterSection from "./FooterSection";
 
-const ServicesSection = () => {
+const Services = () => {
   return (
-    <section id="services" className="section-padding bg-card relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="eyebrow mb-3">Lines of Business</p>
-          <h2 className="display-heading text-foreground text-3xl md:text-5xl mb-4">
-            Enterprise-Grade HR Solutions
-          </h2>
-          <p className="body-text max-w-2xl mx-auto">
-            The HR consulting market is projected to hit $53B by 2028. The firms winning aren't the biggest — they're the most human. Here's how we deliver.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-background">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {/* 🔷 HERO */}
+      <section className="gradient-hero pt-32 pb-24 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
           <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="contents"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            {services.map((service) => (
-              <motion.div
-                key={service.title}
-                variants={item}
-                className="group relative p-8 rounded-2xl border border-border bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                {service.tag && (
-                  <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-wider uppercase">
-                    {service.tag}
-                  </span>
-                )}
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{service.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
-              </motion.div>
-            ))}
+            <p className="font-body text-sm tracking-[0.3em] uppercase text-accent mb-4">
+              Lines of Business
+            </p>
+
+            <h1 className="font-display text-4xl md:text-6xl text-white mb-6">
+              Our <span className="italic text-accent">Services</span>
+            </h1>
+
+            <p className="text-baby-blue/80 text-sm md:text-base leading-relaxed">
+            We don’t just fill roles; we engineer inclusive talent ecosystems. From executive search to Diversity, Equity, Inclusion & Belonging (DEIB) strategy, She Executives is where Fortune 500 companies come to build their next great hire.
+            </p>
           </motion.div>
         </div>
+      </section>
 
-        {/* Visual break with consulting image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden"
-        >
-          <img src={consultingImg} alt="HR consulting session" className="w-full h-64 md:h-96 object-cover" />
-          <div className="absolute inset-0 gradient-hero opacity-60" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <p className="text-baby-blue text-sm tracking-[3px] uppercase mb-2">Why Choose She Executives?</p>
-              <p className="font-display text-3xl md:text-5xl font-semibold text-primary-foreground">
-                Listen. Fit. <span className="text-primary italic">Deliver.</span>
+      {/* 🔷 EXECUTIVE PLACEMENT */}
+      <section className="section-padding bg-background">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+          
+          <AnimatedSection direction="left">
+<div className="relative rounded-2xl overflow-hidden group">
+  <img
+    src={servicesPlacement}
+    className="w-full h-80 object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-90 brightness-90"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-navy-deep/20 transition-opacity duration-500 group-hover:opacity-0" />
+</div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="flex items-center gap-3 mb-4">
+              <Users className="text-accent" size={28} />
+              <p className="text-xs tracking-[0.3em] uppercase text-accent">
+                For Fortune 500 & Progressive Companies
               </p>
             </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+
+            <h2 className="font-display text-3xl md:text-4xl text-foreground">
+              Executive Placement
+            </h2>
+
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              We strategically place women leaders in C-suite and senior
+              positions at organizations committed to gender diversity.
+            </p>
+
+            <ul className="mt-6 space-y-3">
+              {[
+                "C-suite & VP-level women leadership placement",
+                "DEIB strategy alignment & consulting",
+                "Wage gap negotiation advocacy",
+                "Cultural fit & leadership assessment",
+                "90-day onboarding support",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-sm">
+                  <CheckCircle className="text-accent mt-1" size={16} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <Button className="mt-8" asChild>
+              <Link to="/contact">
+                Partner With Us <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* 🔷 DIRECT HIRE */}
+      <section className="section-padding bg-card">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+          <AnimatedSection direction="left" className="order-2 lg:order-1">
+            <div className="flex items-center gap-3 mb-4">
+              <Briefcase className="text-accent" size={28} />
+              <p className="text-xs tracking-[0.3em] uppercase text-accent">
+                For Growing Organizations
+              </p>
+            </div>
+
+            <h2 className="font-display text-3xl md:text-4xl text-foreground">
+              Direct Hire Roles
+            </h2>
+
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Permanent positions for growth-minded professionals. We connect
+              exceptional talent with companies building diverse teams.
+            </p>
+
+            <ul className="mt-6 space-y-3">
+              {[
+                "Permanent full-time placement",
+                "Skills-based matching",
+                "Industry-specific talent pools",
+                "Interview preparation",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-sm">
+                  <CheckCircle className="text-accent mt-1" size={16} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <Button className="mt-8" asChild>
+              <Link to="/shes-hired">
+                Tell Us About Your Role <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right" className="order-1 lg:order-2">
+<div className="relative rounded-2xl overflow-hidden group">
+  <img
+    src={servicesDirecthire}
+    className="w-full h-80 object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-90 brightness-90"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-navy-deep/20 transition-opacity duration-500 group-hover:opacity-0" />
+</div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* 🔷 HR CONSULTING */}
+      <section className="section-padding bg-background">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+          <AnimatedSection direction="left">
+<div className="relative rounded-2xl overflow-hidden group">
+  <img
+    src={servicesConsulting}
+    className="w-full h-80 object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-90 brightness-90"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-navy-deep/20 transition-opacity duration-500 group-hover:opacity-0" />
+</div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="flex items-center gap-3 mb-4">
+              <Shield className="text-accent" size={28} />
+              <p className="text-xs tracking-[0.3em] uppercase text-accent">
+                For Small Businesses
+              </p>
+            </div>
+
+            <h2 className="font-display text-3xl md:text-4xl text-foreground">
+              HR Consulting
+            </h2>
+
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Your complete HR department, outsourced. From compliance to culture
+              building, we handle everything.
+            </p>
+
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              {[
+  { icon: FileText, label: "Employee Handbooks" },      // ✅ Perfect
+  { icon: Scale, label: "Compliance & Audits" },        // ✅ Legal balance
+  { icon: TrendingUp, label: "Wage Strategy" },         // 🔥 better than DollarSign (more strategic)
+  { icon: HeartHandshake, label: "Employee Relations" },         // 🔥 cleaner than HeartHandshake
+  { icon: Calculator, label: "Payroll" },               // 🔥 MUCH better than GraduationCap
+  { icon: ShieldCheck, label: "Benefits Admin" },       // 🔥 trust + protection vibe
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 text-sm">
+                  <item.icon size={16} className="text-accent" />
+                  {item.label}
+                </div>
+              ))}
+            </div>
+
+            <Button className="mt-8" asChild>
+              <Link to="/contact">
+                Get a Consultation <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <FooterSection />
+    </div>
   );
 };
 
-export default ServicesSection;
+export default Services;

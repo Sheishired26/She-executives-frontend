@@ -21,7 +21,7 @@ import hrConsulting from "@/assets/hr-consulting.jpg";
 import MissionSection from "./MissionSection";
 import TestimonialSection from "./Testimonial";
 
-const images = [img1, img2, img3, img4, img5];
+const images = [ img4, img2, img3, img5];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
@@ -109,10 +109,10 @@ return (
           </p>
 
           <h1 className="font-poppins text-white font-semibold leading-[1.1] text-[48px] md:text-[72px] lg:text-[86px] mb-6">
-            Reinventing the Workplace <br />
-            for{" "}
+            Reinventing the Workplace  <br />
+            for Greater Gender{" "}
             <span className="text-[#5fd3ff] drop-shadow-[0_0_12px_rgba(95,211,255,0.6)]">
-              Greater Gender Diversity
+               Diversity
             </span>
           </h1>
 
@@ -135,10 +135,10 @@ return (
       </div>
     </section>
 
-    {/* STATS */}
-<section className="relative py-20 bg-gradient-to-br from-[#0f203c] via-[#11294a] to-[#0a1428] overflow-hidden">
+    
+{/* <section className="relative py-20 bg-gradient-to-br from-[#0f203c] via-[#11294a] to-[#0a1428] overflow-hidden">
 
-  {/* subtle glow background */}
+  
   <div className="absolute inset-0 opacity-20 blur-3xl bg-[radial-gradient(circle_at_20%_30%,#5fd3ff,transparent_40%),radial-gradient(circle_at_80%_70%,#77e3d4,transparent_40%)]"></div>
 
   <div className="relative max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 text-center">
@@ -154,7 +154,7 @@ return (
 
         <StatCounter {...item} />
 
-        {/* subtle divider */}
+        
         <div className="w-8 h-[1px] bg-white/20 mt-4"></div>
 
       </div>
@@ -162,7 +162,7 @@ return (
     ))}
 
   </div>
-</section>
+</section> */}
 
       {/* MISSION */}
       <section className="py-24 bg-[#f8f5f0]">
@@ -179,7 +179,7 @@ return (
 
           <p className="text-lg text-[#555] leading-relaxed">
             SHE Executives redefines HR by championing DEI, wage gap negotiation, and compliance.
-            Nearly a decade of results partnering with Fortune 400 firms, business owners, and small businesses
+            Nearly a decade of results partnering with Fortune 500 firms, business owners, and small businesses
             as their trusted HR extension.
           </p>
 

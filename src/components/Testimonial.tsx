@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     text: "They don’t just fill roles—they elevate organizations.",
-    author: "CEO, Mid-size Enterprise"
+    author: "Female Founder & CEO, Mid-size Enterprise"
   },
   {
     text: "Exceptional results with a human-first approach.",

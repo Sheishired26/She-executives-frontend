@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight, Heart, Award, TrendingUp, Wallet } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import { Button } from "@/components/ui/button";
 import MissionSection from "./MissionSection";
 import { Footer } from "react-day-picker";
 import FooterSection from "./FooterSection";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const milestones = [
   { year: "2017", title: "Founded", desc: "SHE Executives launches with a mission to redefine HR consulting for women leaders." },
@@ -22,10 +24,13 @@ const About = () => {
   
       <section className="  py-24 gradient-hero relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center px-4">
+            <p className="pt-5font-body text-sm tracking-[0.3em] uppercase text-accent mb-4">
+              Driven by Impact
+            </p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className=" pt-10 text-4xl md:text-6xl font-bold text-white mb-6"
+            className=" text-4xl md:text-6xl font-bold text-white mb-6"
           >
             Our <span className="text-sky-400">Story</span>
           </motion.h1>
@@ -40,6 +45,62 @@ const About = () => {
           </motion.p>
         </div>
       </section>
+
+ <section className="bg-background py-20 px-6">
+  <div className="max-w-7xl mx-auto text-center">
+
+    {/* Heading */}
+    <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-6">
+      What <span className="text-accent italic">SHE</span> Stands For
+    </h2>
+
+    {/* Intro */}
+    <p className="max-w-3xl mx-auto text-muted-foreground text-sm md:text-base leading-relaxed mb-16">
+      SHE stands for Successful High Earners, and that’s exactly what we champion.
+      Paid equitably for the work you do. Recognized for the value you bring.
+      Leading organizations that are intentional about building cultures of inclusion,
+      belonging, and real change.
+    </p>
+
+    {/* Items */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      {/* Successful */}
+      <div className="text-center">
+        <Award className="w-8 h-8 text-accent mx-auto mb-4" />
+        <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
+          Successful
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
+          On your own terms, not a standard someone else set for you.
+        </p>
+      </div>
+
+      {/* High */}
+      <div className="text-center">
+        <TrendingUp className="w-8 h-8 text-accent mx-auto mb-4" />
+        <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
+          High
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
+          Reaching the level you’ve earned and paid every dollar of it.
+        </p>
+      </div>
+
+      {/* Earners */}
+      <div className="text-center">
+        <Wallet className="w-8 h-8 text-accent mx-auto mb-4" />
+        <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
+          Earners
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
+          Closing the wage gap because equal work demands equal pay.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MISSION */}
       <MissionSection />
@@ -168,29 +229,55 @@ const About = () => {
 
 </section>
 
-      {/* CTA */}
-      {/* <section className="py-20 bg-gradient-to-br from-[#0f172a] to-[#164e63]">
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center px-4">
 
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Join the Movement
-            </h2>
 
-            <p className="text-lg text-white/80 mb-8">
-              Whether you're a company or a leader—we're here to elevate your journey.
-            </p>
 
-            <Link
-              to="/shes-hired"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-sky-400 text-black rounded-lg hover:bg-sky-300 transition"
-            >
-              She's Hired Campaign <ArrowRight size={16} />
-            </Link>
 
-          </div>
-        </ScrollReveal>
-      </section> */}
+
+      <section className="  py-24 gradient-hero relative overflow-hidden section-padding">
+  <div className="max-w-2xl mx-auto text-center px-6">
+    <AnimatedSection>
+
+<h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+  Ready to <span className="text-accent italic">Partner</span> ?
+</h2>
+      <p className="mt-4 text-baby-blue/80 font-body text-sm md:text-base leading-relaxed">
+        Whether you’re a Fortune 500 company, a growing business, or a leader
+        seeking your next opportunity, let’s connect.
+      </p>
+
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        
+        {/* Primary Button */}
+        <Button
+          size="lg"
+          className="bg-accent text-white hover:bg-accent/90 transition-all"
+          asChild
+        >
+          <Link to="/contact">
+            Contact Us <ArrowRight size={16} />
+          </Link>
+        </Button>
+
+        {/* Outline Button */}
+<Button
+  size="lg"
+  variant="outline"
+  className="
+    border-white text-white bg-white/5 backdrop-blur-sm
+    hover:border-accent hover:text-accent hover:bg-white/10
+    transition-all duration-300
+  "
+  asChild
+>
+  <Link to="/shes-hired">She's Hired Campaign</Link>
+</Button>
+
+      </div>
+
+    </AnimatedSection>
+  </div>
+</section>
 
       <FooterSection />
 

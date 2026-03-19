@@ -8,10 +8,10 @@ import sheLogo from "/She-logo.png";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "#services" },
-  { label: "E-Learning", href: "#elearning" },
+  { label: "Services", href: "/service" },
+  { label: "E-Learning", href: "/elearning" },
   { label: "She's Hired", href: "/shes-hired" },
-  { label: "Contact", href: "/Contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {

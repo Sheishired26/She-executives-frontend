@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Briefcase, Crown, BarChart3, Handshake } from "lucide-react";
+import { Briefcase, UserPlus, BadgeCheck, RefreshCcw } from "lucide-react";
 
 const stats = [
-  { number: "15+", label: "Years in HR & Recruiting", icon: Briefcase },
-  { number: "500+", label: "Women Placed in Leadership", icon: Crown },
-  { number: "40%", label: "More Diverse Candidate Slates", icon: BarChart3 },
-  { number: "98%", label: "Client Retention Rate", icon: Handshake },
+  { number: "20+", label: "Years in HR & Recruiting", icon: Briefcase },
+  { number: "90%", label: "New Clients via Referral", icon: UserPlus },
+  { number: "98%", label: "Candidate Satisfaction", icon: BadgeCheck },
+  { number: "85%", label: "Client Repeat Rate", icon: RefreshCcw },
 ];
 
 const MissionSection = () => {
@@ -25,14 +25,14 @@ const MissionSection = () => {
           >
             <p className="eyebrow text-baby-blue mb-3">Our Mission</p>
             <h2 className="font-display text-3xl md:text-5xl font-semibold text-secondary-foreground leading-tight mb-6">
-              Changing the Face of Business,{" "}
-              <span className="italic text-primary">One New-Hire at a Time</span>
+              Successful High Earners. .{" "}
+              <span className="italic text-primary">Intentional Leaders</span>
             </h2>
             <p className="text-base leading-relaxed text-baby-blue/70 mb-6">
-              She Executives doesn't simply fill positions. we create workplace solutions by placing, searching for, and supporting powerful women and men who embrace creativity through diversity. With empathy for the industries we serve, we lead the evolution of how women are represented in every company in the world.
+             SHE Executives is more than HR consulting. we're a movement. Partnering with Fortune 500 firms, owners, and small businesses across all US states and Canada, we champion DEI, negotiate wage equity, and place women leaders who transform organizations from the inside out.	
             </p>
             <p className="text-base leading-relaxed text-baby-blue/70">
-              Founded by Priscilla Anderson, a 15+ year HR veteran who has partnered with Fortune 500 manufacturers, consumer goods companies, and supply chain leaders, She Executives is driven by a single passion: helping women take their rightful place in leadership roles while helping client companies prosper through inclusion.
+              Over a decade of redefining HR from executive placement to full-service consulting, we are your complete HR extension.
             </p>
           </motion.div>
 
