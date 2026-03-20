@@ -2,16 +2,119 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send, Paperclip, Instagram, Facebook, Linkedin  } from "lucide-react";
 import { useState } from "react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { useEffect } from "react";
+import "@/components/Hero.css"
+
+
 
 const Contact = () => {
-  const [fileName, setFileName] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+const [service, setService] = useState("");
+const [fileName, setFileName] = useState("");
+const [resumeName, setResumeName] = useState("");
+const [course, setCourse] = useState("");
+const [date, setDate] = useState("");
+const [time, setTime] = useState("");
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [message, setMessage] = useState("");
+const [customSubject, setCustomSubject] = useState("");
+const [pledge, setPledge] = useState("");
+const [company, setCompany] = useState("");
+const [attachment, setAttachment] = useState(null);
+const [resume, setResume] = useState(null);
 
-  const handleFileChange = (e: any) => {
-    if (e.target.files[0]) {
-      setFileName(e.target.files[0].name);
+const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState(false);
+const [submittedName, setSubmittedName] = useState("");
+
+useEffect(() => {
+  if (success) {
+    const timer = setTimeout(() => {
+      setSuccess(false);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }
+}, [success]);
+
+const handleFileChange = (e: any) => {
+  if (e.target.files[0]) {
+    setFileName(e.target.files[0].name);
+  }
+};
+
+
+const handleSubmit = async (e: any) => {
+  e.preventDefault();
+  setLoading(true);
+  const startTime = Date.now();
+
+  const elapsed = Date.now() - startTime;
+const delay = 800 - elapsed; // minimum 800ms loader
+
+if (delay > 0) {
+  await new Promise(res => setTimeout(res, delay));
+}
+
+  
+
+  try {
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+    formData.append("company", company);
+    formData.append("service", service);
+    formData.append("course", course);
+    formData.append("date", date);
+    formData.append("time", time);
+    formData.append("pledge", pledge);
+    formData.append("customSubject", customSubject);
+    
+
+    if (attachment) formData.append("attachment", attachment);
+    if (resume) formData.append("resume", resume);
+
+    const res = await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await res.json();
+
+    if (result.success) {
+      setSubmittedName(name); // 👈 store BEFORE clearing
+      setSuccess(true);
+
+      // reset form
+      setName("");
+      setEmail("");
+      setMessage("");
+      setService("");
+      setCourse("");
+      setCompany("");
+      setDate("");
+      setTime("");
+      setPledge("");
+      setCustomSubject("");
+      setFileName("");
+      setResumeName("");
+      setAttachment(null);
+      setResume(null);
+
+    } else {
+      alert("Failed to send message");
     }
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong!");
+  } finally {
+    setLoading(false);
+  }
+};
+  
 
   return (
     <div className=" bg-white">
@@ -137,14 +240,14 @@ const Contact = () => {
     </div>
 
     {/* BOOKING */}
-    <a
+    {/* <a
       href="https://sheexecutives.com"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 text-sky-500 font-medium text-sm hover:underline mb-10"
     >
       Schedule a free consultation →
-    </a>
+    </a> */}
 
     {/* SOCIAL */}
     <div>
@@ -176,19 +279,44 @@ const Contact = () => {
 <ScrollReveal direction="right">
   <div className="bg-white/70 backdrop-blur-xl rounded-2xl border border-sky-100 shadow-xl p-8">
 
+
+{success ? (
+  <div className="relative text-center py-16 px-6 animate-fadeIn scale-100">
+
+    {/* CLOSE BUTTON */}
+    <button
+      onClick={() => setSuccess(false)}
+      className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl"
+    >
+      ✕
+    </button>
+
+    {/* ICON */}
+    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-sky-100 flex items-center justify-center">
+      <span className="text-sky-500 text-2xl">✓</span>
+    </div>
+
+    {/* MESSAGE */}
+    <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+      Hello {submittedName || "there"} 👋
+    </h2>
+
+    <p className="text-gray-600 mb-2">
+      Thank you for contacting <span className="font-medium">She's Executives</span>.
+    </p> <br />
+ 
+    <p className="text-gray-600">
+      We’ve received your request and our team will get in touch with you shortly.
+    </p><br />
+
+    <p className="text-gray-600 mb-2">
+      Team <span className="font-medium">She's Executives</span>.
+    </p> <br />
+  </div>
+) : (
+  <>
     {/* STATE */}
-    {(() => {
-      const [service, setService] = useState("");
-      const [fileName, setFileName] = useState("");
-
-      const handleFileChange = (e: any) => {
-        if (e.target.files[0]) {
-          setFileName(e.target.files[0].name);
-        }
-      };
-
-      return (
-        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+    <form className="space-y-6" onSubmit={handleSubmit}>
 
           {/* Row */}
           <div className="grid md:grid-cols-2 gap-6">
@@ -199,9 +327,11 @@ const Contact = () => {
                 Name <span className="text-red-500">*</span>
               </label>
               <input
-                type="text"
-                required
-                placeholder="Your name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  placeholder="Your name"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
               />
             </div>
@@ -213,6 +343,8 @@ const Contact = () => {
               </label>
               <input
                 type="text"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
                 placeholder="Your company"
                 className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
               />
@@ -226,6 +358,8 @@ const Contact = () => {
             </label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="your@email.com"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
@@ -239,13 +373,21 @@ const Contact = () => {
             </label>
             <select
               value={service}
-              onChange={(e) => setService(e.target.value)}
+                onChange={(e) => {
+                  setService(e.target.value);
+                  setCourse("");
+                  setResumeName("");
+                  setDate("");
+                  setTime("");
+                }}
               className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
             >
               <option value="">Select an option</option>
+              <option>Schedule a Free Consultation</option>
               <option>Executive Placement</option>
               <option>Direct Hire</option>
               <option>HR Consulting</option>
+              <option>E-Learning</option>
               <option>She's Hired Campaign</option>
               <option>SHE Cares</option>
               <option>Other</option>
@@ -259,12 +401,93 @@ const Contact = () => {
                 Subject / Details
               </label>
               <input
-                type="text"
+                  type="text"
+                value={customSubject}
+                onChange={(e) => setCustomSubject(e.target.value)}
                 placeholder="Please specify your request..."
                 className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
               />
             </div>
           )}
+
+          {/* 👇 SHOW ONLY WHEN "OTHER" */}
+          {service === "Schedule a Free Consultation" && (
+            <div className="space-y-4 animate-fadeIn">
+
+              {/* Date */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Date
+                </label>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                />
+              </div>
+
+              {/* Time */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Time
+                </label>
+                <input
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                />
+              </div>
+
+            </div>
+          )}
+
+          {/* 👇 SHOW ONLY WHEN E-LEARNING */}
+          {service === "E-Learning" && (
+              <div className="animate-fadeIn">
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Course
+                </label>
+
+                <select
+                  value={course}
+                  onChange={(e) => setCourse(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                >
+                  <option value="">Choose a course</option>
+                  <option>Women Learning Together</option>
+                  <option>Learn Together, Grow With Mentors</option>
+                  <option>Inclusive Leadership Masterclass</option>
+                  <option>Compensation & Pay Equity Lab</option>
+                  <option>DEIB Strategy Bootcamp</option>
+                  <option>Resume & Interview Power Hour</option>
+                </select>
+              </div>
+            )}
+
+
+          {/* 👇 SHOW ONLY WHEN SHE's HIRED */}
+          {service === "She's Hired Campaign" && (
+            <div className="space-y-4 animate-fadeIn">
+
+             
+             {/* Pledge */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Take the Pledge
+                </label>
+                <textarea
+                    rows={2}
+                  value={pledge}
+                  onChange={(e) => setPledge(e.target.value)}
+                  placeholder="Write your pledge..."
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition resize-none"
+                />
+              </div>
+            </div>
+          )}
+
 
           {/* Message */}
           <div>
@@ -273,10 +496,48 @@ const Contact = () => {
             </label>
             <textarea
               rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell us about your needs..."
               className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition resize-none"
             />
           </div>
+            
+
+          {/* 👇 SHOW ONLY WHEN SHE's HIRED */}
+          {service === "She's Hired Campaign" && (
+            <div className="space-y-4 animate-fadeIn">
+
+             
+
+              {/* Resume Upload */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Upload Resume
+                </label>
+
+                <label className="flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-sky-300 rounded-lg cursor-pointer hover:bg-sky-50 transition">
+                  <Paperclip size={16} className="text-sky-500" />
+                  <span className="text-sm text-gray-600">
+                    {resumeName || "Upload resume"}
+                  </span>
+
+                  <input
+                    type="file"
+                      key={fileName} // 👈 forces reset
+                    className="hidden"
+                    onChange={(e: any) => {
+                      if (e.target.files[0]) {
+                        setResumeName(e.target.files[0].name);
+                        setResume(e.target.files[0]);
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+
+            </div>
+          )}
 
           {/* FILE UPLOAD */}
           <div>
@@ -292,8 +553,14 @@ const Contact = () => {
 
               <input
                 type="file"
+                  key={fileName} // 👈 forces reset
                 className="hidden"
-                onChange={handleFileChange}
+                onChange={(e: any) => {
+                  if (e.target.files[0]) {
+                    setFileName(e.target.files[0].name);
+                    setAttachment(e.target.files[0]);
+                  }
+                }}
               />
             </label>
           </div>
@@ -301,14 +568,23 @@ const Contact = () => {
           {/* BUTTON */}
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition disabled:opacity-50"
           >
-            Send Message <Send size={16} />
+            {loading ? (
+              <>
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message <Send size={16} />
+              </>
+            )}
           </button>
-
         </form>
-      );
-    })()}
+ </>
+    )}
   </div>
 </ScrollReveal>
         </div>
