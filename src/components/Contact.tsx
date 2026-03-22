@@ -71,10 +71,12 @@ const handleSubmit = async (e: any) => {
     if (attachment) formData.append("attachment", attachment);
     if (resume) formData.append("resume", resume);
 
-const res = await fetch("https://she-executives-backend.onrender.com/send-email", {
+const res = await fetch("https://she-executives-backend.onrender.com", {
   method: "POST",
   body: formData,
 });
+const text = await res.text();
+console.log(text);
 
     if (!res.ok) throw new Error("Failed request");
 
