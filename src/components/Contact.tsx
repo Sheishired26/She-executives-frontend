@@ -131,9 +131,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
+    <div className=" bg-white">
+
+
+      {/* <section className="py-24 bg-gradient-to-br from-[#0f172a] to-[#164e63]"> */}
+      <section className="py-24 gradient-hero relative overflow-hidden">   
         <div className="pt-10 max-w-4xl mx-auto text-center px-4">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -154,394 +156,464 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Content */}
+      {/* CONTENT */}
       <section className="py-20 bg-gradient-to-b from-white to-sky-50">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 px-4">
+
           {/* LEFT INFO */}
-          <ScrollReveal direction="left">
-            <div>
-              <div className="w-24 h-[2px] mb-6 bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-80"></div>
+          {/* LEFT INFO */}
+<ScrollReveal direction="left">
+  <div>
+    
+    {/* Premium faded divider */}
+    <div className="w-24 h-[2px] mb-6 bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-80"></div>
 
-              <h2 className="font-display text-3xl font-bold text-gray-900 mb-6">
-                Get in Touch
-              </h2>
+    <h2 className="font-display text-3xl font-bold text-gray-900 mb-6">
+      Get in Touch
+    </h2>
 
-              <p className="text-gray-600 leading-relaxed mb-10">
-                Whether you're looking for executive talent, need HR
-                consulting, or want to join the She's Hired movement—reach out
-                today.
-              </p>
+    <p className="text-gray-600 leading-relaxed mb-10">
+      Whether you're looking for executive talent, need HR consulting, 
+      or want to join the She's Hired movement—reach out today.
+    </p>
 
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
-                      Address
-                    </p>
-                    <p className="text-gray-800 font-medium">
-                      El Segundo, California, United States
-                    </p>
-                  </div>
-                </div>
+    {/* CONTACT INFO */}
+    <div className="space-y-6 mb-10">
 
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
-                      Email
-                    </p>
-                    <p className="text-gray-800 font-medium">
-                      hrsolutions@sheexecutives.com
-                    </p>
-                  </div>
-                </div>
+      {/* Address */}
+      <div className="flex items-start gap-4">
+        <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
+          <MapPin size={20} />
+        </div>
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
+            Address
+          </p>
+          <p className="text-gray-800 font-medium">
+            El Segundo, California, United States
+          </p>
+        </div>
+      </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
-                      Phone
-                    </p>
-                    <p className="text-gray-800 font-medium">866-568-0773</p>
-                  </div>
-                </div>
-              </div>
+      {/* Email */}
+      <div className="flex items-start gap-4">
+        <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
+          <Mail size={20} />
+        </div>
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
+            Email
+          </p>
+          <p className="text-gray-800 font-medium">
+            hrsolutions@sheexecutives.com
+          </p>
+        </div>
+      </div>
 
-              <div className="mb-10">
-                <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-2">
-                  Coverage
-                </p>
-                <p className="text-gray-800 font-medium">All US States & Canada</p>
-              </div>
+      {/* Phone */}
+      <div className="flex items-start gap-4">
+        <div className="w-11 h-11 rounded-lg bg-sky-100 flex items-center justify-center text-sky-500">
+          <Phone size={20} />
+        </div>
+        <div>
+          <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-1">
+            Phone
+          </p>
+          <p className="text-gray-800 font-medium">
+            866-568-0773
+          </p>
+        </div>
+      </div>
 
-              <div className="mb-10">
-                <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-3">
-                  Business Hours
-                </p>
+    </div>
 
-                <div className="text-sm text-gray-800 space-y-1">
-                  <p>
-                    Monday – Friday:{" "}
-                    <span className="font-medium">9:00 AM – 5:00 PM</span>
-                  </p>
-                  <p>
-                    Saturday – Sunday: <span className="text-gray-500">Closed</span>
-                  </p>
-                </div>
-              </div>
+    {/* COVERAGE */}
+    <div className="mb-10">
+      <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-2">
+        Coverage
+      </p>
+      <p className="text-gray-800 font-medium">
+        All US States & Canada
+      </p>
+    </div>
 
-              <div>
-                <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-4">
-                  Connect With Us
-                </p>
+    {/* BUSINESS HOURS */}
+    <div className="mb-10">
+      <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-3">
+        Business Hours
+      </p>
 
-                <div className="flex gap-5">
-                  <a
-                    href="https://www.instagram.com/sheexecutives/"
-                    target="_blank"
-                    className="text-gray-500 hover:text-sky-500 transition"
-                  >
-                    <Instagram size={24} />
-                  </a>
+      <div className="text-sm text-gray-800 space-y-1">
+        <p>
+          Monday – Friday: <span className="font-medium">9:00 AM – 5:00 PM</span>
+        </p>
+        <p>
+          Saturday – Sunday: <span className="text-gray-500">Closed</span>
+        </p>
+      </div>
+    </div>
 
-                  <a
-                    href="https://www.facebook.com/Sheexecutives/#"
-                    target="_blank"
-                    className="text-gray-500 hover:text-sky-500 transition"
-                  >
-                    <Facebook size={24} />
-                  </a>
+    {/* BOOKING */}
+    {/* <a
+      href="https://sheexecutives.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-sky-500 font-medium text-sm hover:underline mb-10"
+    >
+      Schedule a free consultation →
+    </a> */}
 
-                  <a
-                    href="https://www.linkedin.com/company/she-executives/"
-                    target="_blank"
-                    className="text-gray-500 hover:text-sky-500 transition"
-                  >
-                    <Linkedin size={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+    {/* SOCIAL */}
+    <div>
+      <p className="text-[10px] tracking-widest uppercase text-gray-500 mb-4">
+        Connect With Us
+      </p>
+
+      <div className="flex gap-5">
+        
+        <a href="https://www.instagram.com/sheexecutives/" target="_blank" className="text-gray-500 hover:text-sky-500 transition">
+          <Instagram size={24} />
+        </a>
+
+        <a href="https://www.facebook.com/Sheexecutives/#" target="_blank" className="text-gray-500 hover:text-sky-500 transition">
+          <Facebook size={24} />
+        </a>
+
+        <a href="https://www.linkedin.com/company/she-executives/" target="_blank" className="text-gray-500 hover:text-sky-500 transition">
+          <Linkedin size={24} />
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</ScrollReveal>
 
           {/* RIGHT FORM */}
-          <ScrollReveal direction="right">
-            <div className="bg-white/70 backdrop-blur-xl rounded-2xl border border-sky-100 shadow-xl p-8">
-              {success ? (
-                <div className="relative text-center py-16 px-6 animate-fadeIn scale-100">
-                  <button
-                    onClick={() => setSuccess(false)}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl"
-                  >
-                    ✕
-                  </button>
+<ScrollReveal direction="right">
+  <div className="bg-white/70 backdrop-blur-xl rounded-2xl border border-sky-100 shadow-xl p-8">
 
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-sky-100 flex items-center justify-center">
-                    <span className="text-sky-500 text-2xl">✓</span>
-                  </div>
 
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-                    Hello {submittedName || "there"} 👋
-                  </h2>
+{success ? (
+  <div className="relative text-center py-16 px-6 animate-fadeIn scale-100">
 
-                  <p className="text-gray-600 mb-2">
-                    Thank you for contacting{" "}
-                    <span className="font-medium">She's Executives</span>.
-                  </p>
-                  <br />
+    {/* CLOSE BUTTON */}
+    <button
+      onClick={() => setSuccess(false)}
+      className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl"
+    >
+      ✕
+    </button>
 
-                  <p className="text-gray-600">
-                    We’ve received your request and our team will get in touch
-                    with you shortly.
-                  </p>
-                  <br />
+    {/* ICON */}
+    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-sky-100 flex items-center justify-center">
+      <span className="text-sky-500 text-2xl">✓</span>
+    </div>
 
-                  <p className="text-gray-600 mb-2">
-                    Team <span className="font-medium">She's Executives</span>.
-                  </p>
-                  <br />
-                </div>
-              ) : (
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  {/* --- Name & Company Row --- */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="text-sm text-gray-700 mb-2 block">
-                        Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                      />
-                    </div>
+    {/* MESSAGE */}
+    <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+      Hello {submittedName || "there"} 👋
+    </h2>
 
-                    <div>
-                      <label className="text-sm text-gray-700 mb-2 block">
-                        Company{" "}
-                        <span className="text-gray-400 text-xs">(optional)</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        placeholder="Your company"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                      />
-                    </div>
-                  </div>
+    <p className="text-gray-600 mb-2">
+      Thank you for contacting <span className="font-medium">She's Executives</span>.
+    </p> <br />
+ 
+    <p className="text-gray-600">
+      We’ve received your request and our team will get in touch with you shortly.
+    </p><br />
 
-                  {/* --- Email --- */}
-                  <div>
-                    <label className="text-sm text-gray-700 mb-2 block">
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                    />
-                  </div>
+    <p className="text-gray-600 mb-2">
+      Team <span className="font-medium">She's Executives</span>.
+    </p> <br />
+  </div>
+) : (
+  <>
+    {/* STATE */}
+    <form className="space-y-6" onSubmit={handleSubmit}>
 
-                  {/* --- Service Select --- */}
-                  <div>
-                    <label className="text-sm text-gray-700 mb-2 block">
-                      How Can We Help?
-                    </label>
-                    <select
-                      value={service}
-                      onChange={(e) => {
-                        setService(e.target.value);
-                        setCourse("");
-                        setResumeName("");
-                        setDate("");
-                        setTime("");
-                      }}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                    >
-                      <option value="">Select an option</option>
-                      <option>Schedule a Free Consultation</option>
-                      <option>Executive Placement</option>
-                      <option>Direct Hire</option>
-                      <option>HR Consulting</option>
-                      <option>E-Learning</option>
-                      <option>She's Hired Campaign</option>
-                      <option>SHE Cares</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-
-                  {/* Additional conditional fields */}
-                  {service === "Other" && (
-                    <div className="animate-fadeIn">
-                      <label className="text-sm text-gray-700 mb-2 block">
-                        Subject / Details
-                      </label>
-                      <input
-                        type="text"
-                        value={customSubject}
-                        onChange={(e) => setCustomSubject(e.target.value)}
-                        placeholder="Please specify your request..."
-                        className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                      />
-                    </div>
-                  )}
-
-                  {service === "Schedule a Free Consultation" && (
-                    <div className="space-y-4 animate-fadeIn">
-                      <div>
-                        <label className="text-sm text-gray-700 mb-2 block">
-                          Select Date
-                        </label>
-                        <input
-                          type="date"
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                          className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="text-sm text-gray-700 mb-2 block">
-                          Select Time
-                        </label>
-                        <input
-                          type="time"
-                          value={time}
-                          onChange={(e) => setTime(e.target.value)}
-                          className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {service === "E-Learning" && (
-                    <div className="animate-fadeIn">
-                      <label className="text-sm text-gray-700 mb-2 block">
-                        Select Course
-                      </label>
-
-                      <select
-                        value={course}
-                        onChange={(e) => setCourse(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                      >
-                        <option value="">Choose a course</option>
-                        <option>Women Learning Together</option>
-                        <option>Learn Together, Grow With Mentors</option>
-                        <option>Inclusive Leadership Masterclass</option>
-                        <option>Compensation & Pay Equity Lab</option>
-                        <option>DEIB Strategy Bootcamp</option>
-                        <option>Resume & Interview Power Hour</option>
-                      </select>
-                    </div>
-                  )}
-
-                  {service === "She's Hired Campaign" && (
-                    <div className="space-y-4 animate-fadeIn">
-                      <div>
-                        <label className="text-sm text-gray-700 mb-2 block">
-                          Take the Pledge
-                        </label>
-                        <textarea
-                          rows={2}
-                          value={pledge}
-                          onChange={(e) => setPledge(e.target.value)}
-                          placeholder="Write your pledge..."
-                          className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition resize-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="text-sm text-gray-700 mb-2 block">
-                          Share Your Support for She’s Hired Campaign. (USD)
-                        </label>
-                        <input
-                          type="number"
-                          value={amount}
-                          onChange={(e) => setAmount(e.target.value)}
-                          placeholder="Enter amount (USD)"
-                          className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="text-sm text-gray-700 mb-2 block">
-                          Upload Resume
-                        </label>
-
-                        <label className="flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-sky-300 rounded-lg cursor-pointer hover:bg-sky-50 transition">
-                          <Paperclip size={16} className="text-sky-500" />
-                          <span className="text-sm text-gray-600">
-                            {resumeName || "Upload resume"}
-                          </span>
-
-                          <input
-                            ref={resumeRef}
-                            type="file"
-                            className="hidden"
-                            onChange={handleResumeChange}
-                          />
-                        </label>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Attachment */}
-                  <div>
-                    <label className="text-sm text-gray-700 mb-2 block">
-                      Attachment (optional)
-                    </label>
-
-                    <label className="flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-sky-300 rounded-lg cursor-pointer hover:bg-sky-50 transition">
-                      <Paperclip size={16} className="text-sky-500" />
-                      <span className="text-sm text-gray-600">
-                        {fileName || "Upload file"}
-                      </span>
-
-                      <input
-                        ref={attachmentRef}
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileChange}
-                      />
-                    </label>
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <Send size={16} />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+          {/* Row */}
+          <div className="grid md:grid-cols-2 gap-6">
+            
+            {/* Name */}
+            <div>
+              <label className="text-sm text-gray-700 mb-2 block">
+                Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  placeholder="Your name"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+              />
             </div>
-          </ScrollReveal>
+
+            {/* Company (optional) */}
+            <div>
+              <label className="text-sm text-gray-700 mb-2 block">
+                Company <span className="text-gray-400 text-xs">(optional)</span>
+              </label>
+              <input
+                type="text"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                placeholder="Your company"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+              />
+            </div>
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="text-sm text-gray-700 mb-2 block">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="your@email.com"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+            />
+          </div>
+
+          {/* Select */}
+          <div>
+            <label className="text-sm text-gray-700 mb-2 block">
+              How Can We Help?
+            </label>
+            <select
+              value={service}
+                onChange={(e) => {
+                  setService(e.target.value);
+                  setCourse("");
+                  setResumeName("");
+                  setDate("");
+                  setTime("");
+                }}
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+            >
+              <option value="">Select an option</option>
+              <option>Schedule a Free Consultation</option>
+              <option>Executive Placement</option>
+              <option>Direct Hire</option>
+              <option>HR Consulting</option>
+              <option>E-Learning</option>
+              <option>She's Hired Campaign</option>
+              <option>SHE Cares</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          {/* 👇 SHOW ONLY WHEN "OTHER" */}
+          {service === "Other" && (
+            <div className="animate-fadeIn">
+              <label className="text-sm text-gray-700 mb-2 block">
+                Subject / Details
+              </label>
+              <input
+                  type="text"
+                value={customSubject}
+                onChange={(e) => setCustomSubject(e.target.value)}
+                placeholder="Please specify your request..."
+                className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+              />
+            </div>
+          )}
+
+          {/* 👇 SHOW ONLY WHEN "OTHER" */}
+          {service === "Schedule a Free Consultation" && (
+            <div className="space-y-4 animate-fadeIn">
+
+              {/* Date */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Date
+                </label>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                />
+              </div>
+
+              {/* Time */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Time
+                </label>
+                <input
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                />
+              </div>
+
+            </div>
+          )}
+
+          {/* 👇 SHOW ONLY WHEN E-LEARNING */}
+          {service === "E-Learning" && (
+              <div className="animate-fadeIn">
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Select Course
+                </label>
+
+                <select
+                  value={course}
+                  onChange={(e) => setCourse(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+                >
+                  <option value="">Choose a course</option>
+                  <option>Women Learning Together</option>
+                  <option>Learn Together, Grow With Mentors</option>
+                  <option>Inclusive Leadership Masterclass</option>
+                  <option>Compensation & Pay Equity Lab</option>
+                  <option>DEIB Strategy Bootcamp</option>
+                  <option>Resume & Interview Power Hour</option>
+                </select>
+              </div>
+            )}
+
+
+          {/* 👇 SHOW ONLY WHEN SHE's HIRED */}
+          {service === "She's Hired Campaign" && (
+            <div className="space-y-4 animate-fadeIn">
+
+             
+             {/* Pledge */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Take the Pledge
+                </label>
+                <textarea
+                    rows={2}
+                  value={pledge}
+                  onChange={(e) => setPledge(e.target.value)}
+                  placeholder="Write your pledge..."
+                  className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition resize-none"
+                />
+              </div>
+            </div>
+          )}
+
+
+          {/* Message */}
+          <div>
+            <label className="text-sm text-gray-700 mb-2 block">
+              Message
+            </label>
+            <textarea
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Tell us about your needs..."
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition resize-none"
+            />
+          </div>
+            
+
+          {/* 👇 SHOW ONLY WHEN SHE's HIRED */}
+          {service === "She's Hired Campaign" && (
+            <div className="space-y-4 animate-fadeIn">
+              
+            {/* 💰 Donation Amount */}
+            <div>
+              <label className="text-sm text-gray-700 mb-2 block">
+                Share Your Support for She’s Hired Campaign. (USD)
+              </label>
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="Enter amount (USD)"
+                className="w-full px-4 py-3 rounded-lg border border-sky-200 bg-white focus:ring-2 focus:ring-sky-400 outline-none transition"
+              />
+            </div>
+                        
+
+              {/* Resume Upload */}
+              <div>
+                <label className="text-sm text-gray-700 mb-2 block">
+                  Upload Resume
+                </label>
+
+                <label className="flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-sky-300 rounded-lg cursor-pointer hover:bg-sky-50 transition">
+                  <Paperclip size={16} className="text-sky-500" />
+                  <span className="text-sm text-gray-600">
+                    {resumeName || "Upload resume"}
+                  </span>
+
+                  <input
+                    type="file"
+                      key={fileName} // 👈 forces reset
+                    className="hidden"
+                    onChange={(e: any) => {
+                      if (e.target.files[0]) {
+                        setResumeName(e.target.files[0].name);
+                        setResume(e.target.files[0]);
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+
+            </div>
+          )}
+
+          {/* FILE UPLOAD */}
+          <div>
+            <label className="text-sm text-gray-700 mb-2 block">
+              Attachment (optional)
+            </label>
+
+            <label className="flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-sky-300 rounded-lg cursor-pointer hover:bg-sky-50 transition">
+              <Paperclip size={16} className="text-sky-500" />
+              <span className="text-sm text-gray-600">
+                {fileName || "Upload file"}
+              </span>
+
+              <input
+                type="file"
+                  key={fileName} // 👈 forces reset
+                className="hidden"
+                onChange={(e: any) => {
+                  if (e.target.files[0]) {
+                    setFileName(e.target.files[0].name);
+                    setAttachment(e.target.files[0]);
+                  }
+                }}
+              />
+            </label>
+          </div>
+
+          {/* BUTTON */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-600 transition disabled:opacity-50"
+          >
+            {loading ? (
+              <>
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message <Send size={16} />
+              </>
+            )}
+          </button>
+        </form>
+ </>
+    )}
+  </div>
+</ScrollReveal>
         </div>
       </section>
     </div>
