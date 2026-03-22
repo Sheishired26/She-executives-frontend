@@ -83,8 +83,16 @@ const Contact = () => {
       if (attachment) formData.append("attachment", attachment);
       if (resume) formData.append("resume", resume);
 
+
+      //   const res = await fetch(
+      //   "http://localhost:5000/send-email",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //   }
+      // );
       const res = await fetch(
-        "http://localhost:5000/send-email",
+        "https://she-executives-backend.onrender.com/send-email",
         {
           method: "POST",
           body: formData,
