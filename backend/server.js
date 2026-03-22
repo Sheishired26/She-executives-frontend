@@ -7,7 +7,7 @@ import multer from "multer";
 import dns from "dns";
 
 dotenv.config();
-dns.setDefaultResultOrder("ipv4first"); // FORCE IPv4 for Gmail
+dns.setDefaultResultOrder("ipv4first"); // Force IPv4 for Gmail
 
 const app = express();
 console.log("🔥 BACKEND FILE IS RUNNING");
@@ -25,15 +25,17 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(null, true);
+        callback(new Error("CORS not allowed"));
       }
     },
     methods: ["GET", "POST"],
+    credentials: true,
   })
 );
 
 // ======= BODY PARSER =======
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ======= MULTER =======
 const upload = multer({ storage: multer.memoryStorage() });
@@ -49,11 +51,11 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // 16-digit App Password
+    pass: process.env.EMAIL_PASS, // 16-digit Gmail App Password
   },
 });
 
-// ======= VERIFY =======
+// ======= VERIFY EMAIL CONFIG =======
 transporter.verify((error) => {
   if (error) {
     console.log("❌ Email config error:", error);
@@ -172,8 +174,13 @@ app.post(
   }
 );
 
+// ======= 404 HANDLER =======
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: "Route not found" });
+});
+
 // ======= START SERVER =======
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
