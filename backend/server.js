@@ -7,33 +7,44 @@ import multer from "multer";
 dotenv.config();
 
 const app = express();
+
+/* ================= CORS ================= */
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:8080",
+  "https://she-executives.netlify.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://she-executives.netlify.app",
-    ],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(null, true); // 🔥 allow all (temporary safe fix)
+      }
+    },
     methods: ["GET", "POST"],
-    credentials: true,
   })
 );
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-// ✅ Memory storage (NO uploads folder)
+/* ================= MULTER ================= */
 const upload = multer({ storage: multer.memoryStorage() });
 
-// ✅ Transporter
+/* ================= NODEMAILER ================= */
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: "gmail", // ✅ more stable than host config
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-// ✅ Verify transporter
+/* ================= VERIFY ================= */
 transporter.verify((error) => {
   if (error) {
     console.log("❌ Email config error:", error);
@@ -42,7 +53,12 @@ transporter.verify((error) => {
   }
 });
 
-// ✅ ROUTE
+/* ================= TEST ROUTE ================= */
+app.get("/", (req, res) => {
+  res.send("API running ✅");
+});
+
+/* ================= MAIN ROUTE ================= */
 app.post(
   "/send-email",
   upload.fields([
@@ -65,27 +81,36 @@ app.post(
         amount,
       } = req.body;
 
-      // ✅ FILES
-      const attachmentFile = req.files?.attachment?.[0];
-      const resumeFile = req.files?.resume?.[0];
+      if (!name || !email) {
+        return res.status(400).json({
+          success: false,
+          message: "Name and Email are required",
+        });
+      }
 
-      // ✅ Build attachments (BUFFER based)
+      /* ================= FILES ================= */
       const attachments = [];
 
-      if (attachmentFile) {
+      if (req.files?.attachment?.[0]) {
         attachments.push({
-          filename: attachmentFile.originalname,
-          content: attachmentFile.buffer,
+          filename: req.files.attachment[0].originalname,
+          content: req.files.attachment[0].buffer,
         });
       }
 
-      if (resumeFile) {
+      if (req.files?.resume?.[0]) {
         attachments.push({
-          filename: resumeFile.originalname,
-          content: resumeFile.buffer,
+          filename: req.files.resume[0].originalname,
+          content: req.files.resume[0].buffer,
         });
       }
 
+
+
+
+
+
+      
       // ✅ Validation
       if (!name || !email) {
         return res.status(400).json({
@@ -315,9 +340,13 @@ await transporter.sendMail({
       res.status(200).json({ success: true });
 
     } catch (error) {
-      console.error("❌ Error:", error);
-      res.status(500).json({ success: false });
-    }
+  console.error("❌ FULL ERROR:", error);
+
+  res.status(500).json({
+    success: false,
+    message: error.message, // 👈 IMPORTANT
+  });
+}
   }
 );
 
@@ -325,3 +354,9 @@ await transporter.sendMail({
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
+
+app.get("/", (req, res) => {
+  res.send("API running ✅");
+});
+

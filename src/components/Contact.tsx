@@ -45,17 +45,10 @@ const handleFileChange = (e: any) => {
 };
 
 
+
 const handleSubmit = async (e: any) => {
   e.preventDefault();
   setLoading(true);
-  const startTime = Date.now();
-
-  const elapsed = Date.now() - startTime;
-const delay = 800 - elapsed; // minimum 800ms loader
-
-if (delay > 0) {
-  await new Promise(res => setTimeout(res, delay));
-}
 
   
 
@@ -83,13 +76,15 @@ const res = await fetch("https://she-executives-backend.onrender.com/send-email"
   body: formData,
 });
 
+    if (!res.ok) throw new Error("Failed request");
+
     const result = await res.json();
 
     if (result.success) {
-      setSubmittedName(name); // 👈 store BEFORE clearing
+      setSubmittedName(name);
       setSuccess(true);
 
-      // reset form
+      // reset
       setName("");
       setEmail("");
       setMessage("");
@@ -105,7 +100,6 @@ const res = await fetch("https://she-executives-backend.onrender.com/send-email"
       setResumeName("");
       setAttachment(null);
       setResume(null);
-
     } else {
       alert("Failed to send message");
     }
@@ -114,7 +108,7 @@ const res = await fetch("https://she-executives-backend.onrender.com/send-email"
     console.error(error);
     alert("Something went wrong!");
   } finally {
-    setLoading(false);
+    setLoading(false); // ✅ always stops spinner
   }
 };
   
