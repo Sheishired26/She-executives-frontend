@@ -46,6 +46,11 @@ const HeroSection = () => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 5000);
 
+      images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+  
     return () => clearInterval(interval);
   }, [current]);
 
