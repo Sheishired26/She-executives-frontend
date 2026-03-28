@@ -13,7 +13,8 @@ console.log("🔥 BACKEND FILE IS RUNNING");
 const allowedOrigins = [
   "http://localhost:8080",
   "https://she-executives.netlify.app",
-  "https://sheexecutives.com/"
+  "https://sheexecutives.com/",
+  "https://she-executives.vercel.app/"
   
 ];
 
