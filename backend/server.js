@@ -209,7 +209,11 @@ app.post(
       await transporter.sendMail({
         from: `"She's Executives" <${process.env.EMAIL_USER}>`,
         replyTo: email,
-        to: process.env.EMAIL_USER,
+        to: [
+            process.env.EMAIL_USER,
+            "priscillaanderson@sheexecutives.com",
+            "hrsolutions@sheexecutives.com"
+            ],
         subject,
         html,
         attachments,

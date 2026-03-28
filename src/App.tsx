@@ -20,7 +20,6 @@ import Loader from "./components/Loader.tsx";
 import preloadImages from "@/components/ui/preloadImages";
 
 // ✅ ALL IMPORTANT IMAGES
-import img1 from "@/assets/hero1.jpg";
 import img2 from "@/assets/hero2.jpg";
 import img3 from "@/assets/hero3.png";
 import img4 from "@/assets/hero4.jpg";
@@ -34,6 +33,7 @@ import executivePlacement from "@/assets/executive-placement.jpg";
 import directHire from "@/assets/direct-hire.jpg";
 import hrConsulting from "@/assets/hr-consulting.jpg";
 
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -43,7 +43,6 @@ const App = () => {
     const loadAssets = async () => {
       try {
         const images = [
-          img1,
           img2,
           img3,
           img4,
